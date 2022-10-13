@@ -1,4 +1,4 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
 import useMarvelService from '../../services/MarvelService';
@@ -53,7 +53,6 @@ const View = ({comic}) => {
                 <div className="single-comic__price">{price}</div>
             </div>
             <Link to="/comics" className="single-comic__back">Back to all</Link>
-            <Outlet/>
         </div>
     )
 }

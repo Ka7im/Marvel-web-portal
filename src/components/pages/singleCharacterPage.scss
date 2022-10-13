@@ -1,0 +1,26 @@
+.single-page {
+    &__wrapper {
+        display: flex;
+        width: 900px;
+        img {
+            width: 300px;
+        }
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+        text-transform: uppercase;
+    }
+    &__descr {
+        margin-top: 28px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+    }
+    &__text {
+        display: flex;
+        margin-left: 50px;
+        flex-direction: column;
+    }
+}
