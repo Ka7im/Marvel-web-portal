@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, memo, useCallback} from 'react';
 import {Helmet} from 'react-helmet';
 
 import RandomChar from "../randomChar/RandomChar";
@@ -10,13 +10,16 @@ import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 import decoration from '../../resources/img/vision.png';
 
+const MemoRandomChar = memo(RandomChar);
+const MemoCharForm = memo(CharForm);
+
 const MainPage = () => {
 
     const [selectedChar, setChar] = useState(null);
 
-    const onCharSelected = (id) => {
+    const onCharSelected = useCallback((id) => {
         setChar(id);
-    }
+    }, [])
 
     return (
         <>
@@ -28,7 +31,7 @@ const MainPage = () => {
                 <title>Marvel information portal</title>
             </Helmet>
             <ErrorBoundary>
-                <RandomChar/>
+                <MemoRandomChar/>
             </ErrorBoundary>
             <div className="char__content">
                 <ErrorBoundary>
@@ -39,7 +42,7 @@ const MainPage = () => {
                         <CharInfo charId={selectedChar} />
                     </ErrorBoundary>
                     <ErrorBoundary>
-                        <CharForm/>
+                        <MemoCharForm/>
                     </ErrorBoundary>
                 </div>
             </div>

@@ -15,6 +15,9 @@ const schema = yup.object({
 
 
 const CharForm = () => {
+
+    console.log('renderForm')
+
     const { register, formState: { errors }, handleSubmit, reset } = useForm({mode:'onBlur', resolver: yupResolver(schema)});
     const {loading, error, getCharacterByName} = useMarvelService();
     const [char, setChar] = useState(false);
